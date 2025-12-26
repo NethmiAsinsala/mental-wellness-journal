@@ -1,0 +1,110 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #e5e7eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+header button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #e5e7eb;
+}
+
+/* Sections as Cards */
+section {
+    background-color: #1e293b;
+    width: 100%;
+    max-width: 900px;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* Quote Section */
+#quote-section p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+    background-color: #38bdf8;
+    border: none;
+    color: #0f172a;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Mood Buttons */
+#mood-options {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+#mood-options button {
+    background-color: #0f172a;
+    color: #e5e7eb;
+    font-size: 1.3rem;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    resize: none;
+}
+
+/* History */
+#historyList {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
