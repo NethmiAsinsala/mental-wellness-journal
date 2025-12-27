@@ -112,3 +112,22 @@ textarea {
     outline: 2px solid #38bdf8;
     transform: scale(1.1);
 }
+.history-item {
+    background-color: #0f172a;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #f87171;
+    cursor: pointer;
+    font-size: 1rem;
+}
