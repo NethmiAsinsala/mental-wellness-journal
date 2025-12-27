@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -25,12 +27,13 @@
     <section id="mood-section">
         <h2>How are you feeling today?</h2>
         <div id="mood-options">
-            <button>😊</button>
-            <button>😐</button>
-            <button>😔</button>
-            <button>😣</button>
-            <button>😄</button>
+            <button data-mood="Happy">😊</button>
+            <button data-mood="Neutral">😐</button>
+            <button data-mood="Sad">😔</button>
+            <button data-mood="Stressed">😣</button>
+            <button data-mood="Excited">😄</button>
         </div>
+
         <button id="saveMoodBtn">Save Mood</button>
     </section>
 
@@ -56,4 +59,5 @@
     <script src="js/theme.js"></script>
 
 </body>
+
 </html>

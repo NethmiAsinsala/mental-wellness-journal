@@ -108,3 +108,7 @@ textarea {
     opacity: 0.8;
     font-size: 0.9rem;
 }
+#mood-options button.selected {
+    outline: 2px solid #38bdf8;
+    transform: scale(1.1);
+}
