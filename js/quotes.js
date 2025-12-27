@@ -7,6 +7,12 @@ const quotes = [
     "You don't have to have it all figured out.",
     "Be kind to yourself today.",
     "Healing is not linear. Keep going.",
+    "It is never too late to be what you might have been." ,
+    "You don't have to see the whole staircase, just take the first step.",
+    "Growth must be chosen again and again; fear must be overcome again and again.",
+    "Success is stumbling from failure to failure with no loss of enthusiasm." ,
+    "One small positive thought in the morning can change your whole day.",
+    "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.",
     "Your feelings are valid."
 ];
 
