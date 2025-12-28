@@ -20,8 +20,8 @@ img, textarea, button {
 /* Body */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0f172a;
-    color: #e5e7eb;
+    background-color: #7b9795  ;
+    color: #111413;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,8 +39,11 @@ section {
 
 
 header h1 {
-    font-size: 1.6rem;
+    font-size: 4rem;
     font-weight: 600;
+    text-align: center;
+    color: #8ee6d3;
+    text-shadow: black 4px 4px 6px;
 }
 
 header button {
@@ -48,13 +51,13 @@ header button {
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
-    color: #e5e7eb;
+    color: #bec5d3; 
 }
 
 /* Sections as Cards */
 section {
-    background-color: #1e293b;
-    width: 100%;
+    background-color: #c4f0ed;
+    width: 80%;
     max-width: 900px;
     margin: 15px 0;
     padding: 20px;
@@ -65,38 +68,42 @@ section {
 h2 {
     margin-bottom: 12px;
     font-weight: 500;
+    font-family: cursive;
 }
 
 /* Quote Section */
 #quote-section p {
     font-style: italic;
     margin-bottom: 10px;
+    font-family: cursive;
 }
 
 /* Buttons */
 button {
-    background-color: #38bdf8;
+    background-color: #7b9795;
     border: none;
-    color: #0f172a;
+    color: #000000;
     padding: 8px 14px;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: cursive;
 }
 
 button:hover {
     opacity: 0.9;
+    
 }
 
 /* Mood Buttons */
 #mood-options {
     display: flex;
-    gap: 10px;
-    margin: 10px 0;
+    gap: 50px;
+    margin: 15px 0;
 }
 
 #mood-options button {
-    background-color: #0f172a;
+    background-color: #465655;
     color: #e5e7eb;
     font-size: 1.3rem;
 }
@@ -112,17 +119,21 @@ textarea {
     resize: none;
 }
 
+textarea::placeholder {
+    color: black;
+}
+
 /* History */
 #historyList {
     opacity: 0.8;
     font-size: 0.9rem;
 }
 #mood-options button.selected {
-    outline: 2px solid #38bdf8;
+    outline: 2px solid #f79235;
     transform: scale(1.1);
 }
 .history-item {
-    background-color: #0f172a;
+    background-color: #7b9795;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -131,6 +142,12 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+#journalText {
+    margin-bottom: 10px;
+    background-color: #789b98;
+    color: #000;
+    
 }
 
 .delete-btn {

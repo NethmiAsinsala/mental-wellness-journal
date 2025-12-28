@@ -46,6 +46,7 @@ saveJournalBtn.addEventListener("click", () => {
 
     // Clear textarea
     journalText.value = "";
+    loadHistory();
 });
 const historyList = document.getElementById("historyList");
 
