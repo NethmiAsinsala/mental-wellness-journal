@@ -134,6 +134,8 @@ textarea::placeholder {
 }
 .history-item {
     background-color: #7b9795;
+    color: #000;
+    font-weight: 500;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 8px;
