@@ -19,7 +19,7 @@ img, textarea, button {
 
 /* Body */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: cursive;
     background-color: #7b9795;
     color: #111413;
     min-height: 100vh;
@@ -40,8 +40,10 @@ header h1 {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    color: #2f4f4f;
+    color: #c4f0ed;
     margin-bottom: 10px;
+    text-shadow: #080e0e 4px 4px 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 header button {
@@ -111,7 +113,7 @@ textarea {
     border-radius: 10px;
     border: none;
     padding: 10px;
-    font-family: 'Inter', sans-serif;
+    font-family: cursive;
     resize: none;
 }
 
@@ -347,4 +349,20 @@ textarea::placeholder {
     .sidebar li:hover, .sidebar li.active {
         transform: none;
     }
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    
+    justify-content: center;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+}
+
+.app-layout .content {
+    padding: 10px;
+    align-items: center;
 }
