@@ -20,12 +20,10 @@ img, textarea, button {
 /* Body */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #7b9795  ;
+    background-color: #7b9795;
     color: #111413;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0;
 }
 
 /* Header */
@@ -39,11 +37,11 @@ section {
 
 
 header h1 {
-    font-size: 4rem;
-    font-weight: 600;
+    font-size: 3rem;
+    font-weight: 700;
     text-align: center;
-    color: #8ee6d3;
-    text-shadow: black 4px 4px 6px;
+    color: #2f4f4f;
+    margin-bottom: 10px;
 }
 
 header button {
@@ -57,25 +55,24 @@ header button {
 /* Sections as Cards */
 section {
     background-color: #c4f0ed;
-    width: 80%;
+    width: 90%;
     max-width: 900px;
-    margin: 15px 0;
+    margin: 15px auto;
     padding: 20px;
     border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 /* Headings */
 h2 {
     margin-bottom: 12px;
-    font-weight: 500;
-    font-family: cursive;
+    font-weight: 600;
 }
 
 /* Quote Section */
 #quote-section p {
     font-style: italic;
     margin-bottom: 10px;
-    font-family: cursive;
 }
 
 /* Buttons */
@@ -86,8 +83,7 @@ button {
     padding: 8px 14px;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: 700;
-    font-family: cursive;
+    font-weight: 600;
 }
 
 button:hover {
@@ -132,19 +128,18 @@ textarea::placeholder {
     outline: 2px solid #f79235;
     transform: scale(1.1);
 }
+
 .history-item {
     background-color: #7b9795;
     color: #000;
     font-weight: 500;
     padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-}
-.history-item {
+    border-radius: 8px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 #journalText {
     margin-bottom: 10px;
     background-color: #789b98;
@@ -171,45 +166,31 @@ textarea::placeholder {
     }
 }
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    section {
-        padding: 15px;
-    }
-
-    textarea {
-        height: 100px;
-    }
-}
-@media (max-width: 600px) {
 
     body {
         padding: 10px;
     }
 
     header {
+        display: flex;
         flex-direction: column;
         gap: 10px;
         text-align: center;
     }
 
     header h1 {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
 
-    section {
-        padding: 15px;
+    section {   
         margin: 10px 0;
     }
 
     #mood-options {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 15px;
     }
-
     #mood-options button {
         font-size: 1.5rem;
         padding: 10px;
@@ -234,7 +215,7 @@ textarea::placeholder {
 @media (min-width: 601px) and (max-width: 900px) {
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
     }
 
     section {
@@ -257,4 +238,113 @@ textarea::placeholder {
 }
 .history-item p {
     word-wrap: break-word;
+}
+/* Layout */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: #2f4f4f;
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebar .logo {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: #8ee6d3;
+}
+
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar li {
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.sidebar li.active {
+    background-color: #8ee6d3;
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateX(5px);
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Page Switching */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+@media (max-width: 768px) {
+
+    .app-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        overflow-x: auto;
+        background-color: #2f4f4f;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        padding: 10px 15px;
+        justify-content: center;
+    }
+    
+    .sidebar li:hover, .sidebar li.active {
+        transform: none;
+    }
 }

@@ -11,52 +11,101 @@
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Mental Wellness Journal</h1>
-    </header>
+    <div class="app-layout">
 
-    <!-- Motivational Quote Section -->
-    <section id="quote-section">
-        <p id="quoteText"></p>
-        <button id="newQuoteBtn">New Quote</button>
-    </section>
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            
 
-    <!-- Mood Tracker Section -->
-    <section id="mood-section">
-        <h2>How are you feeling today?</h2>
-        <div id="mood-options">
-            <button data-mood="Happy">😊</button>
-            <button data-mood="Neutral">😐</button>
-            <button data-mood="Sad">😔</button>
-            <button data-mood="Stressed">😣</button>
-            <button data-mood="Excited">😄</button>
-        </div>
+            <ul>
+                <li class="active" data-page="daily"> Daily Journal</li>
+                <li data-page="weekly"> Weekly Analysis</li>
+                <li data-page="monthly"> Monthly Analysis</li>
+                <li data-page="yearly"> Yearly Analysis</li>
+                <li data-page="capsule"> Time Capsule</li>
+            </ul>
+        </nav>
 
-        <button id="saveMoodBtn">Save Mood</button>
-    </section>
+        <!-- Main Content -->
+        <main class="content">
 
-    <!-- Journal Section -->
-    <section id="journal-section">
-        <h2>Today's Journal</h2>
-        <textarea id="journalText" placeholder="Write your thoughts here..."></textarea>
-        <button id="saveJournalBtn">Save Entry</button>
-    </section>
+            <!-- Header -->
+            <header>
+                <h1>Mental Wellness Journal</h1>
+            </header>
 
-    <!-- History Section -->
-    <section id="history-section">
-        <h2>Past Entries</h2>
-        <div id="historyList">
-            <!-- Saved moods & journal entries will appear here -->
-        </div>
-    </section>
+            <!-- DAILY PAGE -->
+            <section class="page active" id="daily">
+
+                <!-- Motivational Quote Section -->
+                <section id="quote-section">
+                    <p id="quoteText"></p>
+                    <button id="newQuoteBtn">New Quote</button>
+                </section>
+
+                <!-- Mood Tracker Section -->
+                <section id="mood-section">
+                    <h2>How are you feeling today?</h2>
+                    <div id="mood-options">
+                        <button data-mood="Happy">😊</button>
+                        <button data-mood="Neutral">😐</button>
+                        <button data-mood="Sad">😔</button>
+                        <button data-mood="Stressed">😣</button>
+                        <button data-mood="Excited">😄</button>
+                    </div>
+                    <button id="saveMoodBtn">Save Mood</button>
+                </section>
+
+                <!-- Journal Section -->
+                <section id="journal-section">
+                    <h2>Today's Journal</h2>
+                    <textarea id="journalText" placeholder="Write your thoughts here..."></textarea>
+                    <button id="saveJournalBtn">Save Entry</button>
+                </section>
+
+                <!-- History Section -->
+                <section id="history-section">
+                    <h2>Past Entries</h2>
+                    <div id="historyList"></div>
+                </section>
+
+            </section>
+
+            <!-- WEEKLY PAGE -->
+            <section class="page" id="weekly">
+                <h2> Weekly Analysis</h2>
+                <p>Weekly mood summary will appear here.</p>
+            </section>
+
+            <!-- MONTHLY PAGE -->
+            <section class="page" id="monthly">
+                <h2> Monthly Analysis</h2>
+                <p>Monthly mood summary will appear here.</p>
+            </section>
+
+            <!-- YEARLY PAGE -->
+            <section class="page" id="yearly">
+                <h2> Yearly Analysis</h2>
+                <p>Yearly mood trends will appear here.</p>
+            </section>
+
+            <!-- TIME CAPSULE PAGE -->
+            <section class="page" id="capsule">
+                <h2> Time Capsule</h2>
+                <p>Messages for your future self.</p>
+            </section>
+
+        </main>
+    </div>
 
     <!-- JavaScript -->
     <script src="js/quotes.js"></script>
     <script src="js/mood.js"></script>
     <script src="js/journal.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
 
 </body>
+
 
 </html>
