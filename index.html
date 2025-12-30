@@ -37,6 +37,8 @@
                 <h1>Mental Wellness Journal</h1>
             </header>
                 
+            <!-- DAILY PAGE -->
+            <section class="page active" id="daily">
                 <!-- Motivational Quote Section -->
                 <section id="quote-section">
                     <p id="quoteText"></p>
@@ -68,14 +70,30 @@
                     <h2>Past Entries</h2>
                     <div id="historyList"></div>
                 </section>
+            </section>
 
             
 
             <!-- WEEKLY PAGE -->
             <section class="page" id="weekly">
-                <h2> Weekly Analysis</h2>
-                <p>Weekly mood summary will appear here.</p>
-            </section>
+    <h2>📊 Weekly Mood Analysis</h2>
+    <div class="chart-legend">
+    <div><span class="legend-color happy"></span> Happy</div>
+    <div><span class="legend-color neutral"></span> Neutral</div>
+    <div><span class="legend-color sad"></span> Sad</div>
+    <div><span class="legend-color stressed"></span> Stressed</div>
+    <div><span class="legend-color excited"></span> Excited</div>
+</div>
+
+    <canvas id="weeklyPieChart" width="300" height="300">
+        
+
+    </canvas>
+
+    <p><strong>Most Frequent Mood:</strong> <span id="topMood">--</span></p>
+</section>
+
+
 
             <!-- MONTHLY PAGE -->
             <section class="page" id="monthly">
@@ -104,6 +122,7 @@
     <script src="js/journal.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/weekly.js"></script>
 
 </body>
 
