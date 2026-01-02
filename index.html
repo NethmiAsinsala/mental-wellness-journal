@@ -87,9 +87,30 @@
 
             <!-- MONTHLY PAGE -->
             <section class="page" id="monthly">
-                <h2> Monthly Analysis</h2>
-                <p>Monthly mood summary will appear here.</p>
+                <h2>📅 Monthly Mood Analysis</h2>
+
+                <p>
+                    <strong>Total Entries:</strong>
+                    <span id="monthlyTotal">0</span>
+                </p>
+
+                <canvas id="monthlyBarChart" width="400" height="250"></canvas>
+
+                <p>
+                    <strong>Most Frequent Mood:</strong>
+                    <span id="monthlyTopMood">--</span>
+                </p>
+
+                <!-- Legend -->
+                <div class="chart-legend">
+                    <div><span class="legend-color happy"></span> Happy</div>
+                    <div><span class="legend-color neutral"></span> Neutral</div>
+                    <div><span class="legend-color sad"></span> Sad</div>
+                    <div><span class="legend-color stressed"></span> Stressed</div>
+                    <div><span class="legend-color excited"></span> Excited</div>
+                </div>
             </section>
+
 
             <!-- YEARLY PAGE -->
             <section class="page" id="yearly">
