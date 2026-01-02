@@ -417,3 +417,12 @@ canvas {
 .legend-color.excited {
     background-color: #c084fc;
 }
+#monthly {
+    text-align: center;
+}
+
+#monthly canvas {
+    margin: 20px auto;
+    display: block;
+}
+
