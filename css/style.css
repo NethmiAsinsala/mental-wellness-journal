@@ -370,11 +370,26 @@ textarea::placeholder {
 #weekly {
     text-align: center;
 }
+#weekRange {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #940f68;
+    font-weight: 600;
+    text-shadow: #f3f0f0 3px 2px 2px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 canvas {
     margin: 20px auto;
     display: block;
 }
+#weeklyPieChart {
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 20px auto;
+}
+
 .chart-legend {
     display: flex;
     justify-content: center;

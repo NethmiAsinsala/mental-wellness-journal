@@ -71,7 +71,9 @@
 
             <!-- WEEKLY PAGE -->
             <section class="page" id="weekly">
-                <h2>Weekly Mood Analysis</h2>
+                <h2>Weekly Mood Analysis</h2><br>
+                <p id="weekRange"></p>
+
                 <div class="chart-legend">
                     <div><span class="legend-color happy"></span> Happy</div>
                     <div><span class="legend-color neutral"></span> Neutral</div>
@@ -80,7 +82,12 @@
                     <div><span class="legend-color excited"></span> Excited</div>
                 </div>
 
-                <canvas id="weeklyPieChart" width="300" height="300"></canvas>
+                
+
+                <canvas id="weeklyPieChart" width="320" height="320"></canvas>
+
+                <button onclick="loadWeeklyAnalysis()">This Week</button>
+                <button onclick="loadPreviousWeekAnalysis()">Previous Week</button>
 
                 <p><strong>Most Frequent Mood:</strong> <span id="topMood">--</span></p>
             </section>

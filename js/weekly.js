@@ -1,17 +1,41 @@
-function loadWeeklyAnalysis() {
-    const data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+document.addEventListener("DOMContentLoaded", loadWeeklyAnalysis);
 
+function getWeekRange(offset = 0) {
     const today = new Date();
-    const last7Days = new Date();
-    last7Days.setDate(today.getDate() - 6);
 
-    const weeklyData = data.filter(entry =>
-        new Date(entry.date) >= last7Days
-    );
+    const sunday = new Date(today);
+    sunday.setDate(today.getDate() - today.getDay() - offset * 7);
+    sunday.setHours(0, 0, 0, 0);
+
+    const saturday = new Date(sunday);
+    saturday.setDate(sunday.getDate() + 6);
+    saturday.setHours(23, 59, 59, 999);
+
+    return { sunday, saturday };
+}
+
+function loadWeeklyAnalysis() {
+    loadWeekData(0);
+}
+
+function loadPreviousWeekAnalysis() {
+    loadWeekData(1);
+}
+
+function loadWeekData(offset) {
+    const data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    const { sunday, saturday } = getWeekRange(offset);
+
+    document.getElementById("weekRange").textContent =
+        `Week: ${sunday.toDateString()} - ${saturday.toDateString()}`;
+
+    const weekData = data.filter(entry => {
+        const date = new Date(entry.date);
+        return date >= sunday && date <= saturday;
+    });
 
     const moodCount = {};
-
-    weeklyData.forEach(entry => {
+    weekData.forEach(entry => {
         moodCount[entry.mood] = (moodCount[entry.mood] || 0) + 1;
     });
 
@@ -23,7 +47,21 @@ function drawPieChart(moodCount) {
     const canvas = document.getElementById("weeklyPieChart");
     const ctx = canvas.getContext("2d");
 
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = centerX - 20;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     const total = Object.values(moodCount).reduce((a, b) => a + b, 0);
+
+    if (total === 0) {
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "16px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("No data available", centerX, centerY);
+        return;
+    }
 
     const colors = {
         Happy: "#4ade80",
@@ -35,14 +73,12 @@ function drawPieChart(moodCount) {
 
     let startAngle = 0;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     for (let mood in moodCount) {
-        const sliceAngle = (moodCount[mood] / total) * 2 * Math.PI;
+        const sliceAngle = (moodCount[mood] / total) * Math.PI * 2;
 
         ctx.beginPath();
-        ctx.moveTo(150, 150);
-        ctx.arc(150, 150, 120, startAngle, startAngle + sliceAngle);
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
         ctx.fillStyle = colors[mood] || "#94a3b8";
         ctx.fill();
 
@@ -63,5 +99,3 @@ function findTopMood(moodCount) {
 
     document.getElementById("topMood").textContent = topMood;
 }
-
-document.addEventListener("DOMContentLoaded", loadWeeklyAnalysis);
