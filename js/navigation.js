@@ -13,6 +13,9 @@ navItems.forEach(item => {
     if (pageId === "weekly") {
         loadWeeklyAnalysis();
     }
+    if (pageId === "monthly") {
+    loadMonthlyAnalysis();
+}
 });
 });
 

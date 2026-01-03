@@ -37,6 +37,7 @@ saveMoodBtn.addEventListener("click", () => {
 
     localStorage.setItem("moodHistory", JSON.stringify(moodHistory));
     loadWeeklyAnalysis();
+    loadMonthlyAnalysis();
 
     alert("Mood saved successfully 💙");
 

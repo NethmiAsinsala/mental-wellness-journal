@@ -82,7 +82,7 @@
                     <div><span class="legend-color excited"></span> Excited</div>
                 </div>
 
-                
+
 
                 <canvas id="weeklyPieChart" width="320" height="320"></canvas>
 
@@ -96,12 +96,17 @@
             <section class="page" id="monthly">
                 <h2>📅 Monthly Mood Analysis</h2>
 
+                <p id="monthRange"></p>
+
                 <p>
                     <strong>Total Entries:</strong>
                     <span id="monthlyTotal">0</span>
                 </p>
 
-                <canvas id="monthlyBarChart" width="400" height="250"></canvas>
+                <canvas id="monthlyBarChart" width="420" height="260"></canvas>
+
+                <button onclick="loadMonthlyAnalysis()">This Month</button>
+                <button onclick="loadPreviousMonthAnalysis()">Previous Month</button>
 
                 <p>
                     <strong>Most Frequent Mood:</strong>
@@ -135,10 +140,10 @@
     </div>
 
     <!-- JavaScript -->
-     <script src="js/weekly.js"></script>
-     <script src="js/navigation.js"></script>
-     <script src="js/mood.js"></script>
-     <script src="js/journal.js"></script>
+    <script src="js/weekly.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/mood.js"></script>
+    <script src="js/journal.js"></script>
     <script src="js/quotes.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/monthly.js"></script>

@@ -79,6 +79,7 @@ function loadHistory() {
         journalEntries.splice(index, 1);
         localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
         loadWeeklyAnalysis();
+        loadMonthlyAnalysis();
         loadHistory();
     });
 

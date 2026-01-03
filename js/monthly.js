@@ -1,30 +1,35 @@
 function loadMonthlyAnalysis() {
+    loadMonthData(0);
+}
+
+function loadPreviousMonthAnalysis() {
+    loadMonthData(1);
+}
+
+function loadMonthData(offset) {
     const data = JSON.parse(localStorage.getItem("journalEntries")) || [];
 
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() - offset;
 
-    const monthlyData = data.filter(entry => {
+    const start = new Date(year, month, 1);
+    const end = new Date(year, month + 1, 0, 23, 59, 59);
+
+    document.getElementById("monthRange").textContent =
+        start.toLocaleString("default", { month: "long", year: "numeric" });
+
+    const monthData = data.filter(entry => {
         const d = new Date(entry.date);
-        return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
+        return d >= start && d <= end;
     });
 
-    document.getElementById("monthlyTotal").textContent = monthlyData.length;
-
-    const moodCount = {
-        Happy: 0,
-        Neutral: 0,
-        Sad: 0,
-        Stressed: 0,
-        Excited: 0
-    };
-
-    monthlyData.forEach(entry => {
-        if (moodCount[entry.mood] !== undefined) {
-            moodCount[entry.mood]++;
-        }
+    const moodCount = {};
+    monthData.forEach(entry => {
+        moodCount[entry.mood] = (moodCount[entry.mood] || 0) + 1;
     });
+
+    document.getElementById("monthlyTotal").textContent = monthData.length;
 
     drawMonthlyBarChart(moodCount);
     findMonthlyTopMood(moodCount);
@@ -36,15 +41,7 @@ function drawMonthlyBarChart(moodCount) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const moods = Object.keys(moodCount);
-    const values = Object.values(moodCount);
-    const maxValue = Math.max(...values, 1);
-
-    const barWidth = 50;
-    const gap = 20;
-    const startX = 30;
-    const baseY = canvas.height - 40;
-
+    const moods = ["Happy", "Neutral", "Sad", "Stressed", "Excited"];
     const colors = {
         Happy: "#4ade80",
         Neutral: "#facc15",
@@ -53,28 +50,33 @@ function drawMonthlyBarChart(moodCount) {
         Excited: "#c084fc"
     };
 
-    moods.forEach((mood, index) => {
-        const barHeight = (moodCount[mood] / maxValue) * 140;
-        const x = startX + index * (barWidth + gap);
-        const y = baseY - barHeight;
+    const maxValue = Math.max(...Object.values(moodCount), 1);
+    const barWidth = 50;
+    const gap = 25;
+    const startX = 40;
+    const chartHeight = canvas.height - 60;
 
-        // Draw bar
+    moods.forEach((mood, index) => {
+        const value = moodCount[mood] || 0;
+        const barHeight = (value / maxValue) * chartHeight;
+
+        const x = startX + index * (barWidth + gap);
+        const y = canvas.height - barHeight - 30;
+
         ctx.fillStyle = colors[mood];
         ctx.fillRect(x, y, barWidth, barHeight);
 
-        // Value text
         ctx.fillStyle = "#e5e7eb";
-        ctx.font = "12px Arial";
-        ctx.fillText(moodCount[mood], x + 18, y - 5);
+        ctx.textAlign = "center";
+        ctx.fillText(value, x + barWidth / 2, y - 5);
 
-        // Label
-        ctx.fillText(mood, x - 5, baseY + 15);
+        ctx.fillText(mood, x + barWidth / 2, canvas.height - 10);
     });
 }
 
 function findMonthlyTopMood(moodCount) {
-    let topMood = "--";
     let max = 0;
+    let topMood = "--";
 
     for (let mood in moodCount) {
         if (moodCount[mood] > max) {
@@ -85,5 +87,3 @@ function findMonthlyTopMood(moodCount) {
 
     document.getElementById("monthlyTopMood").textContent = topMood;
 }
-
-document.addEventListener("DOMContentLoaded", loadMonthlyAnalysis);
