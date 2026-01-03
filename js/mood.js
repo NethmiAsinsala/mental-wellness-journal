@@ -36,6 +36,7 @@ saveMoodBtn.addEventListener("click", () => {
     moodHistory.push(moodEntry);
 
     localStorage.setItem("moodHistory", JSON.stringify(moodHistory));
+    loadWeeklyAnalysis();
 
     alert("Mood saved successfully 💙");
 
@@ -43,3 +44,5 @@ saveMoodBtn.addEventListener("click", () => {
     moodButtons.forEach(btn => btn.classList.remove("selected"));
     selectedMood = null;
 });
+
+

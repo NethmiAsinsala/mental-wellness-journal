@@ -78,6 +78,7 @@ function loadHistory() {
     item.querySelector(".delete-btn").addEventListener("click", () => {
         journalEntries.splice(index, 1);
         localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
+        loadWeeklyAnalysis();
         loadHistory();
     });
 
@@ -88,3 +89,4 @@ function loadHistory() {
 
 // Call function on load
 loadHistory();
+
