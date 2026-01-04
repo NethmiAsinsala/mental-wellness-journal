@@ -71,7 +71,7 @@ function loadHistory() {
             ${moodEmojis[entry.mood]}
             <p>${entry.text.substring(0, 60)}...</p>
         </div>
-        <button class="delete-btn">🗑️</button>
+        <button class="delete-btn">❌</button>
     `;
 
     // Delete button logic

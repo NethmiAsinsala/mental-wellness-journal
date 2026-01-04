@@ -127,7 +127,7 @@ textarea::placeholder {
     font-size: 0.9rem;
 }
 #mood-options button.selected {
-    outline: 2px solid #f79235;
+    outline: 2px solid #f53c0d;
     transform: scale(1.1);
 }
 
