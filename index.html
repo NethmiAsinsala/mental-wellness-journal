@@ -125,10 +125,16 @@
 
 
             <!-- YEARLY PAGE -->
-            <section class="page" id="yearly">
-                <h2> Yearly Analysis</h2>
-                <p>Yearly mood trends will appear here.</p>
+            <section id="yearly" class="page">
+                <h2>Yearly Mood Analysis</h2>
+
+                <canvas id="yearlyLineChart" width="700" height="350"></canvas>
+
+                <p>
+                    Dominant Mood: <strong id="yearlyTopMood">--</strong>
+                </p>
             </section>
+
 
             <!-- TIME CAPSULE PAGE -->
             <section class="page" id="capsule">
@@ -147,7 +153,7 @@
     <script src="js/journal.js"></script>
     <script src="js/quotes.js"></script>
     <script src="js/toast.js"></script>
-    
+
 
 </body>
 
