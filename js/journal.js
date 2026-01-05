@@ -17,7 +17,7 @@ saveJournalBtn.addEventListener("click", () => {
     const text = journalText.value.trim();
 
     if (text === "") {
-        alert("Please write something before saving ✍️");
+        showToast("Please write something before saving ✍️");
         return;
     }
 
@@ -42,7 +42,7 @@ saveJournalBtn.addEventListener("click", () => {
     // Save back to localStorage
     localStorage.setItem("journalEntries", JSON.stringify(journalEntries));
 
-    alert("Journal entry saved 💙");
+    showToast("Journal entry saved 💙");
 
     // Clear textarea
     journalText.value = "";

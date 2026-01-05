@@ -19,7 +19,7 @@ moodButtons.forEach(button => {
 
 saveMoodBtn.addEventListener("click", () => {
     if (!selectedMood) {
-        alert("Please select a mood first 😊");
+        showToast("Please select a mood first 😊");
         return;
     }
 
@@ -39,7 +39,7 @@ saveMoodBtn.addEventListener("click", () => {
     loadWeeklyAnalysis();
     loadMonthlyAnalysis();
 
-    alert("Mood saved successfully 💙");
+    showToast("Mood saved successfully 💙");
 
     // Reset selection
     moodButtons.forEach(btn => btn.classList.remove("selected"));
