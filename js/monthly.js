@@ -7,7 +7,13 @@ function loadPreviousMonthAnalysis() {
 }
 
 function loadMonthData(offset) {
-    const data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    let data;
+    try {
+        data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    } catch (error) {
+        console.error("Error loading journal entries:", error);
+        data = [];
+    }
 
     const today = new Date();
     const year = today.getFullYear();

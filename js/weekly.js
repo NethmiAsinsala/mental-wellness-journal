@@ -23,7 +23,13 @@ function loadPreviousWeekAnalysis() {
 }
 
 function loadWeekData(offset) {
-    const data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    let data;
+    try {
+        data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    } catch (error) {
+        console.error("Error loading journal entries:", error);
+        data = [];
+    }
     const { sunday, saturday } = getWeekRange(offset);
 
     document.getElementById("weekRange").textContent =

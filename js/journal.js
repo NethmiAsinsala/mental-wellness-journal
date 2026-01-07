@@ -25,7 +25,13 @@ saveJournalBtn.addEventListener("click", () => {
     const today = new Date().toLocaleDateString();
 
     // Get latest mood (optional)
-    const moodHistory = JSON.parse(localStorage.getItem("moodHistory")) || [];
+    let moodHistory;
+    try {
+        moodHistory = JSON.parse(localStorage.getItem("moodHistory")) || [];
+    } catch (error) {
+        console.error("Error loading mood history:", error);
+        moodHistory = [];
+    }
     const lastMood = moodHistory.length > 0 ? moodHistory[moodHistory.length - 1].mood : "Not set";
 
     const journalEntry = {
@@ -35,7 +41,13 @@ saveJournalBtn.addEventListener("click", () => {
     };
 
     // Get existing journal entries
-    const journalEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    let journalEntries;
+    try {
+        journalEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    } catch (error) {
+        console.error("Error loading journal entries:", error);
+        journalEntries = [];
+    }
 
     journalEntries.push(journalEntry);
 
@@ -54,7 +66,13 @@ const historyList = document.getElementById("historyList");
 function loadHistory() {
     historyList.innerHTML = "";
 
-    const journalEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    let journalEntries;
+    try {
+        journalEntries = JSON.parse(localStorage.getItem("journalEntries")) || [];
+    } catch (error) {
+        console.error("Error loading journal entries:", error);
+        journalEntries = [];
+    }
 
     if (journalEntries.length === 0) {
         historyList.innerHTML = "<p>No entries yet 🌱</p>";
