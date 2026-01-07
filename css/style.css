@@ -20,8 +20,8 @@ img, textarea, button {
 /* Body */
 body {
     font-family: cursive;
-    background-color: #7b9795;
-    color: #111413;
+    background-color: #e6f2ff;
+    color: #1e3a8a;
     min-height: 100vh;
     margin: 0;
 }
@@ -40,9 +40,8 @@ header h1 {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    color: #c4f0ed;
+    color: #1e3a8a;
     margin-bottom: 10px;
-    text-shadow: #080e0e 4px 4px 4px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -51,12 +50,12 @@ header button {
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
-    color: #bec5d3; 
+    color: #1e3a8a; 
 }
 
 /* Sections as Cards */
 section {
-    background-color: #c4f0ed;
+    background-color: #ffffff;
     width: 90%;
     max-width: 900px;
     margin: 15px auto;
@@ -79,9 +78,9 @@ h2 {
 
 /* Buttons */
 button {
-    background-color: #7b9795;
+    background-color: #1e3a8a;
     border: none;
-    color: #000000;
+    color: #ffffff;
     padding: 8px 14px;
     border-radius: 8px;
     cursor: pointer;
@@ -101,8 +100,8 @@ button:hover {
 }
 
 #mood-options button {
-    background-color: #465655;
-    color: #e5e7eb;
+    background-color: #cbd5e1;
+    color: #1e3a8a;
     font-size: 1.3rem;
 }
 
@@ -118,7 +117,7 @@ textarea {
 }
 
 textarea::placeholder {
-    color: black;
+    color: #64748b;
 }
 
 /* History */
@@ -132,8 +131,9 @@ textarea::placeholder {
 }
 
 .history-item {
-    background-color: #7b9795;
-    color: #000;
+    background-color: #eff6ff;
+    color: #1e3a8a;
+    border: 1px solid #bfdbfe;
     font-weight: 500;
     padding: 10px;
     border-radius: 8px; 
@@ -145,9 +145,9 @@ textarea::placeholder {
 
 #journalText {
     margin-bottom: 10px;
-    background-color: #789b98;
-    color: #000;
-    
+    background-color: #eff6ff;
+    color: #1e3a8a;
+    border: 1px solid #bfdbfe;
 }
 
 .delete-btn {
@@ -252,7 +252,7 @@ textarea::placeholder {
 /* Sidebar */
 .sidebar {
     width: 260px;
-    background-color: #2f4f4f;
+    background-color: #1e3a8a;
     color: #ffffff;
     padding: 20px;
     box-shadow: 4px 0 10px rgba(0,0,0,0.1);
@@ -266,7 +266,7 @@ textarea::placeholder {
     font-size: 1.5rem;
     text-align: center;
     font-weight: bold;
-    color: #8ee6d3;
+    color: #ffffff;
 }
 
 .sidebar ul {
@@ -293,8 +293,8 @@ textarea::placeholder {
 }
 
 .sidebar li.active {
-    background-color: #8ee6d3;
-    color: #000;
+    background-color: #ffffff;
+    color: #1e3a8a;
     font-weight: 700;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transform: translateX(5px);
@@ -326,7 +326,7 @@ textarea::placeholder {
         align-items: center;
         padding: 10px;
         overflow-x: auto;
-        background-color: #2f4f4f;
+        background-color: #1e3a8a;
     }
 
     .sidebar ul {
@@ -373,9 +373,9 @@ textarea::placeholder {
 #weekRange {
     font-size: 1rem;
     margin-bottom: 10px;
-    color: #940f68;
+    color: #1e3a8a;
     font-weight: 600;
-    text-shadow: #f3f0f0 3px 2px 2px;
+    text-shadow: none;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -493,5 +493,37 @@ canvas {
         opacity: 0;
         transform: translateX(50px);
     }
+}
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+#mood-options button {
+    background: #f8fafc;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+#mood-options button:hover {
+    border-color: #6366f1;
+}
+
+#mood-options button.selected {
+    background: #eef2ff;
+    border-color: #6366f1;
+}
+
+.mood-label {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #475569;
 }
 
