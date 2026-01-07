@@ -45,13 +45,35 @@
                 <!-- Mood Tracker Section -->
                 <section id="mood-section">
                     <h2>How are you feeling today?</h2>
-                    <div id="mood-options">
-                        <button data-mood="Happy">😊</button>
-                        <button data-mood="Neutral">😐</button>
-                        <button data-mood="Sad">😔</button>
-                        <button data-mood="Stressed">😣</button>
-                        <button data-mood="Excited">😄</button>
+                    <div id="mood-options" class="mood-grid">
+
+                        <button data-mood="Happy" title="Feeling joyful, content, or positive">
+                            😊
+                            <span class="mood-label">Happy</span>
+                        </button>
+
+                        <button data-mood="Neutral" title="Feeling calm or emotionally balanced">
+                            😐
+                            <span class="mood-label">Neutral</span>
+                        </button>
+
+                        <button data-mood="Sad" title="Feeling down, low, or unhappy">
+                            😔
+                            <span class="mood-label">Sad</span>
+                        </button>
+
+                        <button data-mood="Stressed" title="Feeling pressured, tense, or overwhelmed">
+                            😣
+                            <span class="mood-label">Stressed</span>
+                        </button>
+
+                        <button data-mood="Excited" title="Feeling energetic, enthusiastic, or motivated">
+                            😄
+                            <span class="mood-label">Excited</span>
+                        </button>
+
                     </div>
+
                     <button id="saveMoodBtn">Save Mood</button>
                 </section>
 
