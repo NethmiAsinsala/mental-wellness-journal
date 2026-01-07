@@ -92,6 +92,15 @@ function drawPieChart(moodCount) {
     }
 }
 
+const moodEmojis = {
+    Happy: "😊",
+    Neutral: "😐",
+    Sad: "😔",
+    Stressed: "😣",
+    Excited: "😄",
+    "Not set": "❔"
+};
+
 function findTopMood(moodCount) {
     let max = 0;
     let topMood = "--";
@@ -103,5 +112,6 @@ function findTopMood(moodCount) {
         }
     }
 
-    document.getElementById("topMood").textContent = topMood;
+    const emoji = moodEmojis[topMood] || "";
+    document.getElementById("topMood").textContent = topMood === "--" ? "--" : `${emoji} ${topMood}`;
 }
