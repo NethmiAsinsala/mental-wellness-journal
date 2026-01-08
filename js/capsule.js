@@ -1,34 +1,62 @@
-document.getElementById("saveCapsuleBtn").addEventListener("click", () => {
+// Capsule Logic
 
-    const capsule = {
-        message: document.getElementById("capsuleMessage").value,
-        date: document.getElementById("capsuleDate").value,
-        name: document.getElementById("capsuleName").value,
-        password: document.getElementById("capsulePassword").value
-    };
+const saveCapsuleBtn = document.getElementById("saveCapsuleBtn");
+const capsuleHistory = document.getElementById("capsuleHistory");
 
-    if (!capsule.message || !capsule.date || !capsule.password) {
-        alert("Please fill all fields");
+saveCapsuleBtn.addEventListener("click", () => {
+    const target = document.getElementById("capsuleMessage").value;
+    const date = document.getElementById("capsuleDate").value;
+    const name = document.getElementById("capsuleName").value;
+    const password = document.getElementById("capsulePassword").value;
+
+    if (!target || !date || !name || !password) {
+        showToast("Fill all fields ❗");
         return;
     }
 
-    localStorage.setItem("timeCapsule", JSON.stringify(capsule));
-    alert("⏳ Time Capsule Saved Successfully!");
+    const capsules = JSON.parse(localStorage.getItem("timeCapsules")) || [];
+
+    capsules.push({
+        id: Date.now(),
+        target,
+        unlockDate: date,
+        name,
+        password
+    });
+
+    localStorage.setItem("timeCapsules", JSON.stringify(capsules));
+    showToast("Time Capsule Saved ⏳");
+
+    loadCapsules();
 });
-document.getElementById("saveCapsuleBtn").addEventListener("click", () => {
+function loadCapsules() {
+    capsuleHistory.innerHTML = "";
 
-    const capsule = {
-        message: document.getElementById("capsuleMessage").value,
-        date: document.getElementById("capsuleDate").value,
-        name: document.getElementById("capsuleName").value,
-        password: document.getElementById("capsulePassword").value
-    };
+    const capsules = JSON.parse(localStorage.getItem("timeCapsules")) || [];
 
-    if (!capsule.message || !capsule.date || !capsule.password) {
-        alert("Please fill all fields");
-        return;
+    capsules.forEach(capsule => {
+        const div = document.createElement("div");
+        div.className = "capsule-item";
+
+        div.innerHTML = `
+            <strong>🔒 Locked Target</strong>
+            <div class="capsule-date">${capsule.unlockDate}</div>
+        `;
+
+        div.onclick = () => openCapsule(capsule);
+        capsuleHistory.appendChild(div);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadCapsules);
+function openCapsule(capsule) {
+    const name = prompt("Enter your name");
+    const pass = prompt("Enter password");
+
+    if (name === capsule.name && pass === capsule.password) {
+        showToast("Capsule Opened 🎉");
+        alert(`🎯 Your Target:\n\n${capsule.target}`);
+    } else {
+        showToast("Access Denied ❌");
     }
-
-    localStorage.setItem("timeCapsule", JSON.stringify(capsule));
-    alert("⏳ Time Capsule Saved Successfully!");
-});
+}

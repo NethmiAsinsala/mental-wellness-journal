@@ -568,3 +568,31 @@ canvas {
     border-radius: 10px;
     cursor: pointer;
 }
+#capsuleHistory {
+    margin-top: 20px;
+}
+
+.capsule-item {
+    background: #d1fae5;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    width: 70%;
+ margin-left: auto; /* RIGHT ALIGN */
+    cursor: pointer;
+}
+
+.capsule-date {
+    font-size: 12px;
+    opacity: 0.7;
+}
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #22c55e;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
