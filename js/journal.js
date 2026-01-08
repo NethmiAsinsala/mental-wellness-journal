@@ -1,11 +1,4 @@
-const moodEmojis = {
-    Happy: "😊",
-    Neutral: "😐",
-    Sad: "😔",
-    Stressed: "😣",
-    Excited: "😄",
-    "Not set": "❔"
-};
+
 
 
 // Get elements
@@ -86,7 +79,7 @@ function loadHistory() {
     item.innerHTML = `
         <div>
             <strong>${entry.date}</strong> 
-            ${moodEmojis[entry.mood]}
+            ${(window.moodEmojis && window.moodEmojis[entry.mood]) || ""}
             <p>${entry.text.substring(0, 60)}...</p>
         </div>
         <button class="delete-btn">❌</button>
