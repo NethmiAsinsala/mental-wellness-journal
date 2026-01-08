@@ -535,3 +535,36 @@ canvas {
     font-size: 12px;
     color: #475569;
 }
+.capsule-box {
+    max-width: 500px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.capsule-box label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.capsule-box input,
+.capsule-box textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #cbd5f5;
+}
+
+.capsule-box button {
+    margin-top: 16px;
+    width: 100%;
+    padding: 12px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
