@@ -69,9 +69,9 @@ function findTopMood(moodCount) {
 function loadYearlyAnalysis() {
     let data;
     try {
-        data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+        data = JSON.parse(localStorage.getItem("moodHistory")) || [];
     } catch (error) {
-        console.error("Error loading journal entries:", error);
+        console.error("Error loading mood history:", error);
         data = [];
     }
     const currentYear = new Date().getFullYear();

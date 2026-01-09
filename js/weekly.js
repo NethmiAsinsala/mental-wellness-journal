@@ -25,9 +25,9 @@ function loadPreviousWeekAnalysis() {
 function loadWeekData(offset) {
     let data;
     try {
-        data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+        data = JSON.parse(localStorage.getItem("moodHistory")) || [];
     } catch (error) {
-        console.error("Error loading journal entries:", error);
+        console.error("Error loading mood history:", error);
         data = [];
     }
     const { sunday, saturday } = getWeekRange(offset);
@@ -69,7 +69,7 @@ function drawPieChart(moodCount) {
         return;
     }
 
-    const colors = {
+    const colors = window.moodColors || {
         Happy: "#4ade80",
         Neutral: "#facc15",
         Sad: "#60a5fa",

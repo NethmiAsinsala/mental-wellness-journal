@@ -9,9 +9,9 @@ function loadPreviousMonthAnalysis() {
 function loadMonthData(offset) {
     let data;
     try {
-        data = JSON.parse(localStorage.getItem("journalEntries")) || [];
+        data = JSON.parse(localStorage.getItem("moodHistory")) || [];
     } catch (error) {
-        console.error("Error loading journal entries:", error);
+        console.error("Error loading mood history:", error);
         data = [];
     }
 
@@ -48,7 +48,7 @@ function drawMonthlyBarChart(moodCount) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     const moods = ["Happy", "Neutral", "Sad", "Stressed", "Excited"];
-    const colors = {
+    const colors = window.moodColors || {
         Happy: "#4ade80",
         Neutral: "#facc15",
         Sad: "#60a5fa",

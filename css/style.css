@@ -19,7 +19,7 @@ img, textarea, button {
 
 /* Body */
 body {
-    font-family: cursive;
+    font-family: 'Inter', sans-serif;
     background-color: #e6f2ff;
     color: #05143b;
     min-height: 100vh;
@@ -110,7 +110,7 @@ button:hover {
 }
 #mood-section {
     
-    background-color:  #e6f2ff;;
+    background-color:  #e6f2ff;
 }
 
 /* Textarea */
