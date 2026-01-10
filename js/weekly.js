@@ -69,13 +69,7 @@ function drawPieChart(moodCount) {
         return;
     }
 
-    const colors = window.moodColors || {
-        Happy: "#4ade80",
-        Neutral: "#facc15",
-        Sad: "#60a5fa",
-        Stressed: "#f87171",
-        Excited: "#c084fc"
-    };
+    const colors = window.moodColors;
 
     let startAngle = 0;
 

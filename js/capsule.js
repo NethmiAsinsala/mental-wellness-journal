@@ -87,6 +87,12 @@ window.onclick = (event) => {
 };
 
 function openCapsule(capsule) {
+    const today = new Date().toISOString().split('T')[0];
+    if (capsule.unlockDate > today) {
+        showToast(`🔒 Locked until ${capsule.unlockDate}`);
+        return;
+    }
+
     currentCapsule = capsule;
     
     // Reset Modal State

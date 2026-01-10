@@ -48,13 +48,7 @@ function drawMonthlyBarChart(moodCount) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     const moods = ["Happy", "Neutral", "Sad", "Stressed", "Excited"];
-    const colors = window.moodColors || {
-        Happy: "#4ade80",
-        Neutral: "#facc15",
-        Sad: "#60a5fa",
-        Stressed: "#f87171",
-        Excited: "#c084fc"
-    };
+    const colors = window.moodColors;
 
     const maxValue = Math.max(...Object.values(moodCount), 1);
     const barWidth = 50;
