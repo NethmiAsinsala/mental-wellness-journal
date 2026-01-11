@@ -188,6 +188,27 @@
         </main>
     </div>
 
+    <!-- Custom Modal -->
+    <div id="capsuleModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">&times;</span>
+            <h2 id="modalTitle">Unlock Capsule</h2>
+            
+            <div id="modalBody">
+                <!-- Content injected via JS -->
+                 <div id="unlockInputs">
+                    <input type="text" id="unlockName" placeholder="Enter Name">
+                    <input type="password" id="unlockPassword" placeholder="Enter Password">
+                 </div>
+                 <div id="capsuleMessageContent" style="display:none; white-space: pre-wrap;"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="modalActionBtn">Unlock</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="js/constants.js"></script>
     <script src="js/monthly.js"></script>

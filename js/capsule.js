@@ -60,14 +60,71 @@ function loadCapsules() {
 }
 
 document.addEventListener("DOMContentLoaded", loadCapsules);
-function openCapsule(capsule) {
-    const name = prompt("Enter your name");
-    const pass = prompt("Enter password");
 
-    if (name === capsule.name && pass === capsule.password) {
+// Modal Elements
+const capsuleModal = document.getElementById("capsuleModal");
+const closeModal = document.getElementById("closeModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalActionBtn = document.getElementById("modalActionBtn");
+
+const unlockInputs = document.getElementById("unlockInputs");
+const unlockName = document.getElementById("unlockName");
+const unlockPassword = document.getElementById("unlockPassword");
+
+const capsuleMessageContent = document.getElementById("capsuleMessageContent");
+
+let currentCapsule = null;
+
+// Close Modal Logic
+closeModal.onclick = () => {
+    capsuleModal.style.display = "none";
+};
+
+window.onclick = (event) => {
+    if (event.target == capsuleModal) {
+        capsuleModal.style.display = "none";
+    }
+};
+
+function openCapsule(capsule) {
+    currentCapsule = capsule;
+    
+    // Reset Modal State
+    modalTitle.innerText = "Unlock Capsule 🔒";
+    unlockInputs.style.display = "block";
+    capsuleMessageContent.style.display = "none";
+    modalActionBtn.innerText = "Unlock";
+    
+    // Clear inputs
+    unlockName.value = "";
+    unlockPassword.value = "";
+
+    capsuleModal.style.display = "flex";
+}
+
+modalActionBtn.onclick = () => {
+    if (!currentCapsule) return;
+
+    if (modalActionBtn.innerText === "Close") {
+         capsuleModal.style.display = "none";
+         return;
+    }
+
+    const name = unlockName.value;
+    const pass = unlockPassword.value;
+
+    if (name === currentCapsule.name && pass === currentCapsule.password) {
         showToast("Capsule Opened 🎉");
-        alert(`🎯 Your Target:\n\n${capsule.target}`);
+        
+        // Show Content
+        modalTitle.innerText = "🎯 Your Target";
+        unlockInputs.style.display = "none";
+        capsuleMessageContent.style.display = "block";
+        capsuleMessageContent.innerText = currentCapsule.target;
+        
+        modalActionBtn.innerText = "Close";
     } else {
         showToast("Access Denied ❌");
+        unlockPassword.value = ""; // Clear password for retry
     }
 }
