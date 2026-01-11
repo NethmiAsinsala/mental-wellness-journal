@@ -4,10 +4,15 @@ const saveCapsuleBtn = document.getElementById("saveCapsuleBtn");
 const capsuleHistory = document.getElementById("capsuleHistory");
 
 saveCapsuleBtn.addEventListener("click", () => {
-    const target = document.getElementById("capsuleMessage").value;
-    const date = document.getElementById("capsuleDate").value;
-    const name = document.getElementById("capsuleName").value;
-    const password = document.getElementById("capsulePassword").value;
+    const messageInput = document.getElementById("capsuleMessage");
+    const dateInput = document.getElementById("capsuleDate");
+    const nameInput = document.getElementById("capsuleName");
+    const passwordInput = document.getElementById("capsulePassword");
+
+    const target = messageInput.value;
+    const date = dateInput.value;
+    const name = nameInput.value;
+    const password = passwordInput.value;
 
     if (!target || !date || !name || !password) {
         showToast("Fill all fields ❗");
@@ -26,6 +31,12 @@ saveCapsuleBtn.addEventListener("click", () => {
 
     localStorage.setItem("timeCapsules", JSON.stringify(capsules));
     showToast("Time Capsule Saved ⏳");
+
+    // Auto reset form
+    messageInput.value = "";
+    dateInput.value = "";
+    nameInput.value = "";
+    passwordInput.value = "";
 
     loadCapsules();
 });
