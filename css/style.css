@@ -562,7 +562,7 @@ canvas {
     margin-top: 16px;
     width: 100%;
     padding: 12px;
-    background: #6366f1;
+    background: #6f71f7;
     color: white;
     border: none;
     border-radius: 10px;
@@ -665,7 +665,7 @@ canvas {
 }
 
 #unlockInputs input:focus {
-    border-color: #6366f1;
+    border-color: #6f71e7;
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
     background-color: #fff;
 }
@@ -697,7 +697,7 @@ canvas {
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #bbf7d0;
-    color: #166534;
+    color: #35a05e;
     text-align: left;
     margin-top: 10px;
     font-family: inherit;
