@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const newTheme = e.target.value;
             document.body.setAttribute("data-theme", newTheme);
             localStorage.setItem("appTheme", newTheme);
+            
+            // Re-render charts so their grids and text update to match new theme
+            if (typeof loadWeeklyAnalysis === "function") loadWeeklyAnalysis();
+            if (typeof loadMonthlyAnalysis === "function") loadMonthlyAnalysis();
+            if (typeof loadYearlyAnalysis === "function") loadYearlyAnalysis();
         });
     }
 });

@@ -6,6 +6,8 @@ function loadPreviousMonthAnalysis() {
     loadMonthData(1);
 }
 
+let monthlyChartInstance = null;
+
 function loadMonthData(offset) {
     let data;
     try {
@@ -30,9 +32,18 @@ function loadMonthData(offset) {
         return d >= start && d <= end;
     });
 
-    const moodCount = {};
+    const moodCount = {
+        Happy: 0,
+        Neutral: 0,
+        Sad: 0,
+        Stressed: 0,
+        Excited: 0
+    };
+
     monthData.forEach(entry => {
-        moodCount[entry.mood] = (moodCount[entry.mood] || 0) + 1;
+        if(moodCount[entry.mood] !== undefined) {
+             moodCount[entry.mood]++;
+        }
     });
 
     document.getElementById("monthlyTotal").textContent = monthData.length;
@@ -45,32 +56,72 @@ function drawMonthlyBarChart(moodCount) {
     const canvas = document.getElementById("monthlyBarChart");
     const ctx = canvas.getContext("2d");
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (monthlyChartInstance) {
+        monthlyChartInstance.destroy();
+    }
 
     const moods = ["Happy", "Neutral", "Sad", "Stressed", "Excited"];
-    const colors = window.moodColors;
+    const values = moods.map(mood => moodCount[mood]);
+    
+    // Ensure moodColors exists from constants.js
+    const colorsObj = window.moodColors || { Happy: "#fbbf24", Neutral: "#94a3b8", Sad: "#60a5fa", Stressed: "#ef4444", Excited: "#f43f5e" };
+    const colorsArray = moods.map(mood => colorsObj[mood]);
 
-    const maxValue = Math.max(...Object.values(moodCount), 1);
-    const barWidth = 50;
-    const gap = 25;
-    const startX = 40;
-    const chartHeight = canvas.height - 60;
+    const isDarkMode = document.body.getAttribute('data-theme') === 'dark';
+    const textColor = isDarkMode ? '#e2e8f0' : '#475569';
+    const gridColor = isDarkMode ? '#334155' : '#e2e8f0';
 
-    moods.forEach((mood, index) => {
-        const value = moodCount[mood] || 0;
-        const barHeight = (value / maxValue) * chartHeight;
-
-        const x = startX + index * (barWidth + gap);
-        const y = canvas.height - barHeight - 30;
-
-        ctx.fillStyle = colors[mood];
-        ctx.fillRect(x, y, barWidth, barHeight);
-
-        ctx.fillStyle = "#e5e7eb";
-        ctx.textAlign = "center";
-        ctx.fillText(value, x + barWidth / 2, y - 5);
-
-        ctx.fillText(mood, x + barWidth / 2, canvas.height - 10);
+    monthlyChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: moods,
+            datasets: [{
+                label: 'Mood Count',
+                data: values,
+                backgroundColor: colorsArray,
+                borderRadius: 4,
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1,
+                        color: textColor
+                    },
+                    grid: {
+                        color: gridColor
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: textColor
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Hide default legend since we have our custom one
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function(context) {
+                            return context[0].label + ' Mood';
+                        },
+                        label: function(context) {
+                            const val = context.parsed.y;
+                            return ' ' + val + (val === 1 ? ' entry' : ' entries');
+                        }
+                    }
+                }
+            }
+        }
     });
 }
 
