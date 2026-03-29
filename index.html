@@ -7,6 +7,7 @@
     <title>Mental Wellness Journal</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
 </head>
 
 <body>
@@ -23,6 +24,17 @@
                 <li data-page="capsule"> Time Capsule</li>
                 <li data-page="wellness"> 🌿 Wellness</li>
             </ul>
+
+            <!-- Theme Switcher -->
+            <div class="theme-switcher">
+                <label for="themeSelect">Theme:</label>
+                <select id="themeSelect">
+                    <option value="light">Light (Default)</option>
+                    <option value="dark">Night Sky (Dark)</option>
+                    <option value="ocean">Ocean Calming</option>
+                    <option value="forest">Forest Retreat</option>
+                </select>
+            </div>
         </nav>
 
         <!-- Main Content -->
@@ -279,6 +291,7 @@
     <script src="js/weekly.js"></script>
     <script src="js/yearly.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/mood.js"></script>
     <script src="js/journal.js"></script>
     <script src="js/quotes.js"></script>
