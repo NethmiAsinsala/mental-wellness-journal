@@ -765,15 +765,6 @@ canvas {
     transform: scale(1);
     background: radial-gradient(circle, #93c5fd, #3b82f6);
 }
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    text-align: center;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
