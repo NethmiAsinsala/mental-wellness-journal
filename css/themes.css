@@ -16,7 +16,14 @@ body[data-theme="dark"] .sidebar {
     color: #e2e8f0;
 }
 
-body[data-theme="dark"] .sidebar ul li:hover,
+body[data-theme="dark"] .sidebar ul li {
+    color: #e2e8f0;
+}
+
+body[data-theme="dark"] .sidebar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 body[data-theme="dark"] .sidebar ul li.active {
     background-color: #334155;
     color: #60a5fa;
@@ -118,7 +125,14 @@ body[data-theme="ocean"] .sidebar {
     color: #a7f3d0;
 }
 
-body[data-theme="ocean"] .sidebar ul li:hover,
+body[data-theme="ocean"] .sidebar ul li {
+    color: #ccfbf1;
+}
+
+body[data-theme="ocean"] .sidebar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 body[data-theme="ocean"] .sidebar ul li.active {
     background-color: #047857;
     color: #ffffff;
@@ -195,7 +209,14 @@ body[data-theme="forest"] .sidebar {
     color: #fde68a;
 }
 
-body[data-theme="forest"] .sidebar ul li:hover,
+body[data-theme="forest"] .sidebar ul li {
+    color: #fef3c7;
+}
+
+body[data-theme="forest"] .sidebar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 body[data-theme="forest"] .sidebar ul li.active {
     background-color: #92400e;
     color: #ffffff;
@@ -261,17 +282,17 @@ body[data-theme="forest"] .rich-text-toolbar button:hover {
 
 /* Base UI integration for the theme switcher */
 .theme-switcher {
-    margin: 20px;
-    padding: 15px;
+    margin-top: auto; /* Push to bottom of sidebar */
+    padding: 15px 0;
     border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
     flex-direction: column;
 }
 
 .theme-switcher label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin-bottom: 5px;
-    color: #94a3b8;
+    color: rgba(255,255,255,0.8);
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -279,8 +300,11 @@ body[data-theme="forest"] .rich-text-toolbar button:hover {
 .theme-switcher select {
     padding: 8px;
     border-radius: 6px;
-    border: 1px solid #cbd5e1;
+    border: none;
     background: #ffffff;
+    color: #05143b;
     font-family: inherit;
+    font-weight: 600;
     cursor: pointer;
+    outline: none;
 }
