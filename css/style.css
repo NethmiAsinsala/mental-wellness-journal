@@ -156,6 +156,90 @@ textarea::placeholder {
     background-color: #eff6ff;
     color: #05143b;
     border: 1px solid #bfdbfe;
+    width: 100%;
+    min-height: 120px;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: cursive;
+    overflow-y: auto;
+    text-align: left;
+}
+
+#journalText[data-placeholder]:empty:before {
+    content: attr(data-placeholder);
+    color: #64748b;
+    pointer-events: none;
+    display: block;
+}
+
+#journalText img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.rich-text-toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.rich-text-toolbar button {
+    background-color: #cbd5e1;
+    color: #05143b;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid #94a3b8;
+}
+
+.rich-text-toolbar button:hover {
+    background-color: #94a3b8;
+}
+
+.journal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.journal-header h2 {
+    margin: 0;
+}
+
+#shufflePromptBtn {
+    background-color: #fbbf24;
+    color: #78350f;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+}
+
+#shufflePromptBtn:hover {
+    background-color: #f59e0b;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.audio-controls button {
+    padding: 5px 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .delete-btn {
