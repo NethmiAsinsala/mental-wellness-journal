@@ -215,11 +215,35 @@
                         <h3>Breathing Exercise</h3>
                         <p>Take a moment to calm your mind before journaling.</p>
                         
-                        <div class="breathing-circle" id="breathCircle">
-                            <span id="breathText">Breathe</span>
+                        <div class="breathing-circle-wrapper">
+                            <div class="breathing-circle" id="breathCircle">
+                                <span id="breathText">Start</span>
+                            </div>
                         </div>
                         
-                        <button id="startBreatheBtn">Start Exercise</button>
+                        <button id="startBreatheBtn" style="padding: 10px 20px; font-size: 1rem; border-radius: 8px; border: none; background-color: #3b82f6; color: white; cursor: pointer;">Start Exercise</button>
+                    </div>
+
+                    <!-- Emergency Resources Section -->
+                    <div class="emergency-card" style="background-color: #fee2e2; border: 1px solid #fca5a5; border-radius: 12px; padding: 30px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                        <h3 style="color: #b91c1c;">Emergency Resources</h3>
+                        <p style="color: #7f1d1d;">If you are in immediate danger or experiencing a crisis, please reach out for help immediately.</p>
+                        
+                        <ul style="list-style: none; padding: 0; margin-top: 20px; text-align: left;">
+                            <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #fecaca;">
+                                <strong>National Crisis Hotline</strong><br>
+                                <a href="tel:988" style="color: #b91c1c; font-weight: bold; font-size: 1.2rem; text-decoration: none;">📞 988</a>
+                                <p style="margin: 5px 0 0; font-size: 0.9rem; color: #7f1d1d;">Available 24/7 for support.</p>
+                            </li>
+                            <li style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #fecaca;">
+                                <strong>Crisis Text Line</strong><br>
+                                <a href="sms:741741" style="color: #b91c1c; font-weight: bold; font-size: 1.2rem; text-decoration: none;">💬 Text HOME to 741741</a>
+                            </li>
+                            <li>
+                                <strong>International Resources</strong><br>
+                                <a href="http://www.suicide.org/international-suicide-hotlines.html" target="_blank" style="color: #dc2626; text-decoration: underline; font-size: 0.95rem;">Find a helpline in your country</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -260,6 +284,7 @@
     <script src="js/quotes.js"></script>
     <script src="js/toast.js"></script>
     <script src="js/capsule.js"></script>
+    <script src="js/wellness.js"></script>
 
 </body>
 
